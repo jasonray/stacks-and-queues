@@ -24,6 +24,7 @@ public class StackOfStringLinkedList implements StackOfStrings {
 
     @Override
     public String pop() {
+        if (first==null) return null;
         String item = first.item;
         first = first.next;
         return item;

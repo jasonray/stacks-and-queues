@@ -14,6 +14,12 @@ public class StackOfStringLinkedListTest {
     }
 
     @Test
+    public void popEmptyStackReturnsNull() {
+        StackOfStrings stack = stackFactory();
+        assertNull(stack.pop());
+    }
+
+    @Test
     public void pushOneIsNotEmpty() {
         StackOfStrings stack = stackFactory();
         stack.push("hello");
