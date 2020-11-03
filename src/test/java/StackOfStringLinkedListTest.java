@@ -45,4 +45,15 @@ public class StackOfStringLinkedListTest {
         assertEquals("banana", stack.pop());
         assertEquals("apple", stack.pop());
     }
+
+    @Test
+    public void intermixPushPop() {
+        StackOfStrings stack = stackFactory();
+        stack.push("apple");
+        stack.push("banana");
+        assertEquals("banana", stack.pop());
+        stack.push("carrot");
+        assertEquals("carrot", stack.pop());
+        assertEquals("apple", stack.pop());
+    }
 }
