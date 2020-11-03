@@ -27,4 +27,11 @@ public class StackOfStringLinkedListTest {
         stack.pop();
         assertTrue(stack.isEmpty());
     }
+
+    @Test
+    public void pushPopReturnsCorrectItem() {
+        StackOfStrings stack = stackFactory();
+        stack.push("hello");
+        assertEquals("hello", stack.pop());
+    }
 }
