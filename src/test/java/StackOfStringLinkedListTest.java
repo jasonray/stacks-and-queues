@@ -12,4 +12,11 @@ public class StackOfStringLinkedListTest {
         StackOfStrings stack = stackFactory();
         assertTrue(stack.isEmpty());
     }
+
+    @Test
+    public void pushOneIsNotEmpty() {
+        StackOfStrings stack = stackFactory();
+        stack.push("hello");
+        assertFalse(stack.isEmpty());
+    }
 }
