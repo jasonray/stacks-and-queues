@@ -34,4 +34,15 @@ public class StackOfStringLinkedListTest {
         stack.push("hello");
         assertEquals("hello", stack.pop());
     }
+
+    @Test
+    public void pushMultiplePopMultipleReturnsCorrectItem() {
+        StackOfStrings stack = stackFactory();
+        stack.push("apple");
+        stack.push("banana");
+        stack.push("carrot");
+        assertEquals("carrot", stack.pop());
+        assertEquals("banana", stack.pop());
+        assertEquals("apple", stack.pop());
+    }
 }
