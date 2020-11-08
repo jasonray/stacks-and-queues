@@ -135,4 +135,44 @@ public class DequeTest {
         assertEquals("apple", d.removeLast());
         assertEquals("banana", d.removeLast());
     }
+
+    @Test
+    public void popFrontOnEmptyReturnException() {
+        Deque<String> d = new Deque<String>();
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            d.removeFirst();
+        });
+    }
+
+    @Test
+    public void popFrontOnNowEmptyReturnException() {
+        Deque<String> d = new Deque<String>();
+        d.addFirst("apple");
+        d.removeFirst();
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            d.removeFirst();
+        });
+    }
+
+    @Test
+    public void popBackOnEmptyReturnException() {
+        Deque<String> d = new Deque<String>();
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            d.removeLast();
+        });
+    }
+
+    @Test
+    public void popBackOnNowEmptyReturnException() {
+        Deque<String> d = new Deque<String>();
+        d.addFirst("apple");
+        d.removeLast();
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            d.removeLast();
+        });
+    }
+
+
 }
