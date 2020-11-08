@@ -15,4 +15,10 @@ public class DequeTest {
         assertTrue(d.isEmpty());
     }
 
+    @Test
+    public void newDequeSize0() {
+        Deque<String> d = new Deque<String>();
+        assertEquals(0, d.size());
+    }
+
 }
