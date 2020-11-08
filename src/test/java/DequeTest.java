@@ -49,4 +49,12 @@ public class DequeTest {
         d.addFirst("apple");
         assertEquals("apple", d.removeFirst());
     }
+
+    @Test
+    public void pushPopFromFrontIsEmpty() {
+        Deque<String> d = new Deque<String>();
+        d.addFirst("apple");
+        assertEquals("apple", d.removeFirst());
+        assertTrue(d.isEmpty());
+    }
 }
