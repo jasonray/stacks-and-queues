@@ -53,8 +53,20 @@ public class DequeTest {
     @Test
     public void pushPopFromFrontIsEmpty() {
         Deque<String> d = new Deque<String>();
+        assertTrue(d.isEmpty());
         d.addFirst("apple");
+        assertFalse(d.isEmpty());
         assertEquals("apple", d.removeFirst());
         assertTrue(d.isEmpty());
+    }
+
+    @Test
+    public void pushPopFromFrontSize0() {
+        Deque<String> d = new Deque<String>();
+        assertEquals(0, d.size());
+        d.addFirst("apple");
+        assertEquals(1, d.size());
+        assertEquals("apple", d.removeFirst());
+        assertEquals(0, d.size());
     }
 }
