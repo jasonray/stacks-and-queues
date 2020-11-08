@@ -32,8 +32,11 @@ public class Deque<Item> implements Iterable<Item> {
 
     // add the item to the front
     public void addFirst(Item item) {
+        Node oldFirst = this.first;
+
         Node node = new Node();
         node.item = item;
+        node.next = oldFirst;
 
         this.first = node;
     }

@@ -34,4 +34,12 @@ public class DequeTest {
         d.addFirst("apple");
         assertEquals(1, d.size());
     }
+
+    @Test
+    public void addFirstItemTwiceSize2() {
+        Deque<String> d = new Deque<String>();
+        d.addFirst("apple");
+        d.addFirst("banana");
+        assertEquals(2, d.size());
+    }
 }
