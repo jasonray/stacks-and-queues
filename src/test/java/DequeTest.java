@@ -42,4 +42,11 @@ public class DequeTest {
         d.addFirst("banana");
         assertEquals(2, d.size());
     }
+
+    @Test
+    public void pushPopFromFront() {
+        Deque<String> d = new Deque<String>();
+        d.addFirst("apple");
+        assertEquals("apple", d.removeFirst());
+    }
 }
