@@ -2,13 +2,19 @@ import java.util.Iterator;
 
 public class Deque<Item> implements Iterable<Item> {
 
+    private Node first = null;
+    private class Node {
+        Item item;
+        Node next;
+    }
+
     // construct an empty deque
     public Deque() {
     }
 
     // is the deque empty?
     public boolean isEmpty() {
-        return true;
+        return first == null;
     }
 
     // return the number of items on the deque
@@ -18,6 +24,10 @@ public class Deque<Item> implements Iterable<Item> {
 
     // add the item to the front
     public void addFirst(Item item) {
+        Node node = new Node();
+        node.item = item;
+
+        this.first = node;
     }
 
     // add the item to the back
