@@ -124,15 +124,15 @@ public class DequeTest {
         assertEquals("apple", d.removeFirst());
     }
 
-//    @Test
-//    public void addLastPopLast() {
-//        Deque<String> d = new Deque<String>();
-//        d.addFirst("apple");
-//        d.addFirst("banana");
-//        d.addLast("cantaloupe");
-//
-//        assertEquals("cantaloupe", d.removeLast());
-//        assertEquals("apple", d.removeLast());
-//        assertEquals("banana", d.removeLast());
-//    }
+    @Test
+    public void addLastPopLastMultiple() {
+        Deque<String> d = new Deque<String>();
+        d.addFirst("apple");
+        d.addFirst("banana");
+        d.addLast("cantaloupe");
+
+        assertEquals("cantaloupe", d.removeLast());
+        assertEquals("apple", d.removeLast());
+        assertEquals("banana", d.removeLast());
+    }
 }
