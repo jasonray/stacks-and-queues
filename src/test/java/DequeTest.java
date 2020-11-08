@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.Test;
 
+import java.util.NoSuchElementException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DequeTest {
@@ -139,7 +141,7 @@ public class DequeTest {
     @Test
     public void popFrontOnEmptyReturnException() {
         Deque<String> d = new Deque<String>();
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+        Exception exception = assertThrows(NoSuchElementException.class, () -> {
             d.removeFirst();
         });
     }
@@ -150,7 +152,7 @@ public class DequeTest {
         d.addFirst("apple");
         d.removeFirst();
 
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+        Exception exception = assertThrows(NoSuchElementException.class, () -> {
             d.removeFirst();
         });
     }
@@ -158,7 +160,7 @@ public class DequeTest {
     @Test
     public void popBackOnEmptyReturnException() {
         Deque<String> d = new Deque<String>();
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+        Exception exception = assertThrows(NoSuchElementException.class, () -> {
             d.removeLast();
         });
     }
@@ -169,7 +171,7 @@ public class DequeTest {
         d.addFirst("apple");
         d.removeLast();
 
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+        Exception exception = assertThrows(NoSuchElementException.class, () -> {
             d.removeLast();
         });
     }
