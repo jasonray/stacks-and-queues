@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class DequeTest {
 
     @Test
-    public void initDequeu() {
+    public void initDequeOfString() {
         Deque<String> d = new Deque<String>();
     }
     
