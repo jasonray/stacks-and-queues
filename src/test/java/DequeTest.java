@@ -8,5 +8,11 @@ public class DequeTest {
     public void initDequeOfString() {
         Deque<String> d = new Deque<String>();
     }
-    
+
+    @Test
+    public void newDequeIsEmpty() {
+        Deque<String> d = new Deque<String>();
+        assertTrue(d.isEmpty());
+    }
+
 }
