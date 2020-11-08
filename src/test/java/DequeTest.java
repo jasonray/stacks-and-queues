@@ -97,4 +97,16 @@ public class DequeTest {
         assertEquals("apple", d.removeLast());
         assertEquals("banana", d.removeLast());
     }
+
+    @Test
+    public void pushToFrontRemoveBackThreeItems() {
+        Deque<String> d = new Deque<String>();
+        d.addFirst("apple");
+        d.addFirst("banana");
+        d.addFirst("cantaloupe");
+
+        assertEquals("apple", d.removeLast());
+        assertEquals("banana", d.removeLast());
+        assertEquals("cantaloupe", d.removeLast());
+    }
 }
