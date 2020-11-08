@@ -109,4 +109,30 @@ public class DequeTest {
         assertEquals("banana", d.removeLast());
         assertEquals("cantaloupe", d.removeLast());
     }
+
+    @Test
+    public void addLastPopLast() {
+        Deque<String> d = new Deque<String>();
+        d.addLast("apple");
+        assertEquals("apple", d.removeLast());
+    }
+
+    @Test
+    public void addLastPopFirst() {
+        Deque<String> d = new Deque<String>();
+        d.addLast("apple");
+        assertEquals("apple", d.removeFirst());
+    }
+
+//    @Test
+//    public void addLastPopLast() {
+//        Deque<String> d = new Deque<String>();
+//        d.addFirst("apple");
+//        d.addFirst("banana");
+//        d.addLast("cantaloupe");
+//
+//        assertEquals("cantaloupe", d.removeLast());
+//        assertEquals("apple", d.removeLast());
+//        assertEquals("banana", d.removeLast());
+//    }
 }
