@@ -81,4 +81,11 @@ public class DequeTest {
         assertEquals("banana", d.removeFirst());
         assertEquals("apple", d.removeFirst());
     }
+
+    @Test
+    public void pushToFrontRemoveBack() {
+        Deque<String> d = new Deque<String>();
+        d.addFirst("apple");
+        assertEquals("apple", d.removeLast());
+    }
 }

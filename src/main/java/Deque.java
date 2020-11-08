@@ -56,7 +56,13 @@ public class Deque<Item> implements Iterable<Item> {
 
     // remove and return the item from the back
     public Item removeLast() {
-        return null;
+        Node iterator = this.first;
+
+        while (iterator.next != null ) {
+            iterator = iterator.next;
+        }
+
+        return iterator.item;
     }
 
     // return an iterator over items in order from front to back
