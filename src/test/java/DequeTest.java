@@ -27,4 +27,11 @@ public class DequeTest {
         d.addFirst("apple");
         assertFalse(d.isEmpty());
     }
+
+    @Test
+    public void addFirstItemSize1() {
+        Deque<String> d = new Deque<String>();
+        d.addFirst("apple");
+        assertEquals(1, d.size());
+    }
 }
