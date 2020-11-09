@@ -24,10 +24,9 @@ public class Deque<Item> implements Iterable<Item> {
     // return the number of items on the deque
     public int size() {
         int count = 0;
-        Node iterator = first;
-        while (iterator != null) {
-            count++;
-            iterator = iterator.next;
+
+        for (Item item : this) {
+            count ++;
         }
 
         return count;
