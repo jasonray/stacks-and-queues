@@ -235,4 +235,37 @@ public class DequeTest {
             }
         }
     }
+
+    @Test
+    public void iterateOverEmptyDeque() {
+        Deque<String> d = new Deque<String>();
+
+        for (String item : d) {
+            fail("unexpected item " + item);
+        }
+    }
+
+    @Test
+    public void dequeAsStack() {
+        Deque<String> d = new Deque<String>();
+        d.addFirst("apple");
+        d.addFirst("banana");
+        d.addFirst("cantaloupe");
+
+        assertEquals("cantaloupe", d.removeFirst());
+        assertEquals("banana", d.removeFirst());
+        assertEquals("apple", d.removeFirst());
+    }
+
+    @Test
+    public void dequeAsQueue() {
+        Deque<String> d = new Deque<String>();
+        d.addFirst("apple");
+        d.addFirst("banana");
+        d.addFirst("cantaloupe");
+
+        assertEquals("apple", d.removeLast());
+        assertEquals("banana", d.removeLast());
+        assertEquals("cantaloupe", d.removeLast());
+    }
 }
