@@ -33,7 +33,7 @@ public class Deque<Item> implements Iterable<Item> {
 
     // add the item to the front
     public void addFirst(Item item) {
-        if (item==null) throw new IllegalArgumentException();
+        if (item == null) throw new IllegalArgumentException();
 
         Node oldFirst = this.first;
 
@@ -46,7 +46,7 @@ public class Deque<Item> implements Iterable<Item> {
 
     // add the item to the back
     public void addLast(Item item) {
-        if (item==null) throw new IllegalArgumentException();
+        if (item == null) throw new IllegalArgumentException();
 
         if (first == null) {
             this.addFirst(item);
@@ -104,13 +104,16 @@ public class Deque<Item> implements Iterable<Item> {
         return new ListIterator();
     }
 
-    private class ListIterator implements Iterator<Item>
-    {
+    private class ListIterator implements Iterator<Item> {
         private Node current = first;
-        public boolean hasNext() { return current != null; }
+
+        public boolean hasNext() {
+            return current != null;
+        }
+
         public void remove() { /* not supported */ }
-        public Item next()
-        {
+
+        public Item next() {
             Item item = current.item;
             current = current.next;
             return item;
@@ -119,5 +122,32 @@ public class Deque<Item> implements Iterable<Item> {
 
     // unit testing (required)
     public static void main(String[] args) {
+        Deque<String> d = new Deque<String>();
+        System.out.println("is deque empty: " + d.isEmpty());
+
+        System.out.println("add item to front of deque " + "banana");
+        d.addFirst("banana");
+
+        System.out.println("add item to front of deque " + "apple");
+        d.addFirst("apple");
+
+        System.out.println("add item to back of deque " + "cantaloupe");
+        d.addLast("cantaloupe");
+
+        System.out.println("is deque empty: " + d.isEmpty());
+
+        for (String item : d) {
+            System.out.println("for each item:" + item);
+        }
+
+        System.out.println("is deque empty: " + d.isEmpty());
+
+        System.out.println("remove item from front: " + d.removeFirst());
+
+        System.out.println("remove item from back: " + d.removeLast());
+
+        System.out.println("remove item from back: " + d.removeLast());
+
+        System.out.println("is deque empty: " + d.isEmpty());
     }
 }
