@@ -176,5 +176,20 @@ public class DequeTest {
         });
     }
 
+    @Test
+    public void addNullAtFrontReturnsException() {
+        Deque<String> d = new Deque<String>();
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            d.addFirst(null);
+        });
+    }
+
+    @Test
+    public void addNullAtBackReturnsException() {
+        Deque<String> d = new Deque<String>();
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            d.addLast(null);
+        });
+    }
 
 }

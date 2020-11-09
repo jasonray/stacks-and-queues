@@ -33,6 +33,8 @@ public class Deque<Item> implements Iterable<Item> {
 
     // add the item to the front
     public void addFirst(Item item) {
+        if (item==null) throw new IllegalArgumentException();
+
         Node oldFirst = this.first;
 
         Node node = new Node();
@@ -44,6 +46,8 @@ public class Deque<Item> implements Iterable<Item> {
 
     // add the item to the back
     public void addLast(Item item) {
+        if (item==null) throw new IllegalArgumentException();
+
         if (first == null) {
             this.addFirst(item);
         } else {
@@ -97,7 +101,20 @@ public class Deque<Item> implements Iterable<Item> {
 
     // return an iterator over items in order from front to back
     public Iterator<Item> iterator() {
-        return null;
+        return new ListIterator();
+    }
+
+    private class ListIterator implements Iterator<Item>
+    {
+        private Node current = first;
+        public boolean hasNext() { return current != null; }
+        public void remove() { /* not supported */ }
+        public Item next()
+        {
+            Item item = current.item;
+            current = current.next;
+            return item;
+        }
     }
 
     // unit testing (required)
