@@ -122,7 +122,7 @@ public class Deque<Item> implements Iterable<Item> {
             return current != null;
         }
 
-        public void remove() { /* not supported */ }
+        public void remove() { throw new UnsupportedOperationException(); }
 
         public Item next() {
             Item item = current.item;
