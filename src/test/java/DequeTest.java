@@ -192,4 +192,47 @@ public class DequeTest {
         });
     }
 
+    @Test
+    public void iterateOverQueue() {
+        Deque<String> d = new Deque<String>();
+        d.addLast("apple");
+        d.addLast("banana");
+        d.addLast("cantaloupe");
+
+        int itemNumber = 0;
+        for (String item : d) {
+            itemNumber++;
+            if (itemNumber == 1) {
+                assertEquals("apple", item);
+            } else if (itemNumber == 2) {
+                assertEquals("banana", item);
+            } else if (itemNumber == 3) {
+                assertEquals("cantaloupe", item);
+            } else {
+                fail("unexpected item number=" + itemNumber + ", item=" + item);
+            }
+        }
+    }
+
+    @Test
+    public void iterateOverStack() {
+        Deque<String> d = new Deque<String>();
+        d.addFirst("cantaloupe");
+        d.addFirst("banana");
+        d.addFirst("apple");
+
+        int itemNumber = 0;
+        for (String item : d) {
+            itemNumber++;
+            if (itemNumber == 1) {
+                assertEquals("apple", item);
+            } else if (itemNumber == 2) {
+                assertEquals("banana", item);
+            } else if (itemNumber == 3) {
+                assertEquals("cantaloupe", item);
+            } else {
+                fail("unexpected item number=" + itemNumber + ", item=" + item);
+            }
+        }
+    }
 }
