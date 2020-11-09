@@ -147,13 +147,24 @@ public class DequeTest {
     }
 
     @Test
-    public void popFrontOnNowEmptyReturnException() {
+    public void addFrontPopFrontPopFrontReturnsException() {
         Deque<String> d = new Deque<String>();
         d.addFirst("apple");
         d.removeFirst();
 
         Exception exception = assertThrows(NoSuchElementException.class, () -> {
             d.removeFirst();
+        });
+    }
+
+    @Test
+    public void addBackPopBackPopBackReturnsException() {
+        Deque<String> d = new Deque<String>();
+        d.addLast("apple");
+        d.removeLast();
+
+        Exception exception = assertThrows(NoSuchElementException.class, () -> {
+            d.removeLast();
         });
     }
 
@@ -166,10 +177,44 @@ public class DequeTest {
     }
 
     @Test
-    public void popBackOnNowEmptyReturnException() {
+    public void addFrontPopBackPopBackReturnException() {
         Deque<String> d = new Deque<String>();
         d.addFirst("apple");
         d.removeLast();
+
+        Exception exception = assertThrows(NoSuchElementException.class, () -> {
+            d.removeLast();
+        });
+    }
+
+    @Test
+    public void addFrontPopBackPopFrontReturnException() {
+        Deque<String> d = new Deque<String>();
+        d.addFirst("apple");
+        d.removeLast();
+
+        Exception exception = assertThrows(NoSuchElementException.class, () -> {
+            d.removeFirst();
+        });
+    }
+
+    @Test
+    public void addBackPopFrontPopFrontReturnException() {
+        Deque<String> d = new Deque<String>();
+        d.addLast("apple");
+        d.removeFirst();
+
+        Exception exception = assertThrows(NoSuchElementException.class, () -> {
+            d.removeFirst();
+        });
+
+    }
+
+    @Test
+    public void addBackPopFrontPopBackReturnException() {
+        Deque<String> d = new Deque<String>();
+        d.addLast("apple");
+        d.removeFirst();
 
         Exception exception = assertThrows(NoSuchElementException.class, () -> {
             d.removeLast();

@@ -4,10 +4,12 @@ import java.util.NoSuchElementException;
 public class Deque<Item> implements Iterable<Item> {
 
     private Node first = null;
+    private Node last = null;
 
     private class Node {
         Item item;
         Node next;
+        Node previous;
     }
 
     // construct an empty deque
@@ -40,26 +42,38 @@ public class Deque<Item> implements Iterable<Item> {
         Node node = new Node();
         node.item = item;
         node.next = oldFirst;
+        node.previous = null;
 
         this.first = node;
+
+        if (oldFirst != null) {
+            oldFirst.previous = node;
+        }
+
+        if (this.last == null) {
+            this.last = node;
+        }
     }
 
     // add the item to the back
     public void addLast(Item item) {
         if (item == null) throw new IllegalArgumentException();
 
-        if (first == null) {
-            this.addFirst(item);
-        } else {
-            Node node = new Node();
-            node.item = item;
-            node.next = null;
+        Node oldLast = this.last;
 
-            Node iterator = first;
-            while (iterator.next != null) {
-                iterator = iterator.next;
-            }
-            iterator.next = node;
+        Node node = new Node();
+        node.item = item;
+        node.next = null;
+        node.previous = oldLast;
+
+        this.last = node;
+
+        if (oldLast != null) {
+            oldLast.next = node;
+        }
+
+        if (this.first == null) {
+            this.first = node;
         }
     }
 
@@ -69,34 +83,32 @@ public class Deque<Item> implements Iterable<Item> {
             throw new NoSuchElementException();
         }
 
-        Node oldFirst = first;
+        Node oldFirst = this.first;
         Item item = oldFirst.item;
         this.first = oldFirst.next;
+
+        if (this.first == null) {
+            this.last = null;
+        }
 
         return item;
     }
 
     // remove and return the item from the back
     public Item removeLast() {
-        if (first == null) {
+        if (last == null) {
             throw new NoSuchElementException();
         }
 
-        Node iterator = this.first;
+        Node oldLast = this.last;
+        Item item = oldLast.item;
+        this.last = oldLast.previous;
 
-        Node prev = null;
-        while (iterator.next != null) {
-            prev = iterator;
-            iterator = iterator.next;
+        if (this.last == null) {
+            this.first = null;
         }
 
-        if (prev == null) {
-            first = null;
-        } else {
-            prev.next = null;
-        }
-
-        return iterator.item;
+        return item;
     }
 
     // return an iterator over items in order from front to back
